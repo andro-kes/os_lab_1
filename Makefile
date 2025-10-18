@@ -1,11 +1,11 @@
-# Простой Makefile для лабораторной работы №1
+# Makefile для лабораторной работы №1 с main.c и child.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -g
 LDFLAGS = -lm
 
 SRCDIR = src
-SOURCES = $(SRCDIR)/main.c
+SOURCES = $(SRCDIR)/main.c $(SRCDIR)/child.c
 TARGET = prime_checker
 BUILDDIR = build
 
@@ -16,12 +16,11 @@ $(BUILDDIR):
 # Сборка программы
 build: $(BUILDDIR)/$(TARGET)
 
-$(BUILDDIR)/$(TARGET): $(SOURCES)
-	@mkdir -p $(BUILDDIR)
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+$(BUILDDIR)/$(TARGET): $(SOURCES) | $(BUILDDIR)
+	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDFLAGS)
 
 # Запуск программы
-run: $(BUILDDIR)/$(TARGET)
+run: build
 	$(BUILDDIR)/$(TARGET)
 	
 # Очистка

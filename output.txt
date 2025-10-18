@@ -1,0 +1,9 @@
+Number 4 - composite.
+Number 6 - composite.
+Number 8 - composite.
+Number 9 - composite.
+Skipping invalid line: 'aaa'
+Number 10 - composite.
+Number 12 - composite.
+Number 15 - composite.
+Number 17 - prime or negative. Terminating.
