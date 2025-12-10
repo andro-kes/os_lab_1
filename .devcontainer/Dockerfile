@@ -12,8 +12,7 @@ RUN apt-get update \
         bash \
         wget \
         curl \
+        strace \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspaces
-
-
